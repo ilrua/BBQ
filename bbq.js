@@ -18,7 +18,7 @@ console.info("BBQ!!!")
         var id8 = "left8"
         var word8 = "直播间好卡"
     //'use strict';
-url = window.location.hostname
+var url = window.location.hostname
 if (url=="live.bilibili.com"){
         createPenel()
     function createPenel(){
