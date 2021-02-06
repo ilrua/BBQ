@@ -1,6 +1,5 @@
-
 console.info("BBQ!!!")
-
+        var local = false
         var id1 = "left1"
         var word1 = "日安！"
         var id2 = "left2"
@@ -40,7 +39,7 @@ if (url=="live.bilibili.com"){
         $(div2).append(Button)
         Button = '<div data-v-0f5281e6="" class="gift-package live-skin-highlight-bg live-skin-button-text" id="'+ id6 +'" onclick="sendLiveDamku(word6)"><span data-v-0f5281e6="">'+word6+'</span></div>'
         $(div2).append(Button)
-        Button = '<div data-v-0f5281e6="" class="gift-package live-skin-highlight-bg live-skin-button-text" id="'+ id7 +'" onclick="sendLiveDamku(word7)"><span data-v-0f5281e6="">'+word7+'</span></div>'
+        Button = '<div data-v-0f5281e6="" class="gift-package live-skin-highlight-bg live-skin-button-text" id="'+ id7 +'" onclick="sendLiveMusicDamku()"><span data-v-0f5281e6="">'+word7+'</span></div>'
         $(div2).append(Button)
         Button = '<div data-v-0f5281e6="" class="gift-package live-skin-highlight-bg live-skin-button-text" id="'+ id8 +'" onclick="sendLiveDamku(word8)"><span data-v-0f5281e6="">'+word8+'</span></div>'
         $(div2).append(Button)
@@ -51,16 +50,27 @@ if (url=="live.bilibili.com"){
         var fatherLable='<div data-v-1e7d7d58="" data-v-6379e588="" class="seeds-wrap" id="bbq-father-lable"></div>'//定义一个父框
         $(div).append(fatherLable)//创建一个父框
         var div2=document.getElementById("bbq-father-lable")//找到父框
+        var input='<input id="musicName"  type="text" placeholder="在此输入歌名" />'
         var css='<style type="text/css">#left1{float: left;}#left2{float: left;}#left3{float: left;}#left4{float: left;}#left5{float: left;}#left6{float: left;}#left7{float: left;}#left8{float: left;}</style>'//定义（必须有所有的标签）
         $(div2).append(css)
-
+        $(div2).append(input)
     }
 
-    function sendLiveDamku(msg){
+    function sendLiveDamku(msg,){
+        //普通快捷方式
         var token = getCookie(); //设置token
         var roomid = window.location.pathname;
         roomid=roomid.replace("/","");
         var url = "https://api.live.bilibili.com/msg/send?color=16777215&fontsize=25&mode=1&msg=" + msg + "&rnd=1&roomid=" + roomid + "&bubble=0&csrf_token=" + token + "&csrf=" + token
+        post(url)
+    }
+
+    function sendLiveMusicDamku(){
+        var musicName = document.getElementById("musicName").value//获取曲名
+        var token = getCookie(); //设置token
+        var roomid = window.location.pathname;
+        roomid=roomid.replace("/","");
+        var url = "https://api.live.bilibili.com/msg/send?color=16777215&fontsize=25&mode=1&msg=点歌 " + musicName + "&rnd=1&roomid=" + roomid + "&bubble=0&csrf_token=" + token + "&csrf=" + token
         post(url)
     }
 
@@ -105,15 +115,6 @@ if (url=="live.bilibili.com"){
   console.log("Err:No bilibili")
 }
  
-
-
-
-
-
-
-
-
-
 
 
 
