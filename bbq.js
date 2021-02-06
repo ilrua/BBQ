@@ -48,9 +48,9 @@ if (url=="live.bilibili.com"){
 
     function createRuler(){
         var div=document.getElementById("control-panel-ctnr-box");//找到消息框
-        var fatherLable='<div data-v-1e7d7d58="" data-v-6379e588="" class="seeds-wrap" id="bbq-father-lable"></div>'//创建一个父
-        var div2=document.getElementById("bbq-father-lable")//找到父
-        $(div).append(fatherLable)
+        var fatherLable='<div data-v-1e7d7d58="" data-v-6379e588="" class="seeds-wrap" id="bbq-father-lable"></div>'//定义一个父框
+        $(div).append(fatherLable)//创建一个父框
+        var div2=document.getElementById("bbq-father-lable")//找到父框
         var css='<style type="text/css">#left1{float: left;}#left2{float: left;}#left3{float: left;}#left4{float: left;}#left5{float: left;}#left6{float: left;}#left7{float: left;}#left8{float: left;}</style>'//定义（必须有所有的标签）
         $(div2).append(css)
 
