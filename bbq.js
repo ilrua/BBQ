@@ -1,4 +1,12 @@
-console.info("BBQ!!!")
+/*
+Create by Redmaple(ilrua)
+Code by Redmaple(ilrua)
+Art by Bilibili
+Fix by Redmaple(ilrua) and all the internet user.
+*/
+
+console.log('%c Im %c BBQ %c V0.0.1','color:#f00;','font-size:20px;','color:blue;background:yellow;')//特效输出
+        var text = "现在没有消息"
         var local = false
         var id1 = "left1"
         var word1 = "日安！"
@@ -17,16 +25,16 @@ console.info("BBQ!!!")
         var id8 = "left8"
         var word8 = "直播间好卡"
     //'use strict';
-var url = window.location.hostname
+    //萌新友好模式：开
+var url = window.location.hostname//检查域名
 if (url=="live.bilibili.com"){
-        createPenel()
+    createPenel()//自动开始建立面板
     function createPenel(){
-        console.info("Create Penel Now")
-        createRuler()
+        console.info("Creating Penel")
+        createRuler()//创造规则
         var div2 = document.getElementById("bbq-father-lable")//找到父
-        var css='<style type="text/css">#left1{float: left;}#left2{float: left;}#left3{float: left;}#left4{float: left;}#left5{float: left;}#left6{float: left;}#left7{float: left;}#left8{float: left;}</style>'//定义（必须有所有的标签）
-        $(div2).append(css)
         div2 = document.getElementById("bbq-father-lable")
+        //批量制作按钮
         var Button = '<div data-v-0f5281e6="" class="gift-package live-skin-highlight-bg live-skin-button-text" id="'+ id1 +'" onclick="sendLiveDamku(word1)"><span data-v-0f5281e6="">'+word1+'</span></div>'
         $(div2).append(Button)
         Button = '<div data-v-0f5281e6="" class="gift-package live-skin-highlight-bg live-skin-button-text" id="'+ id2 +'" onclick="sendLiveDamku(word2)"><span data-v-0f5281e6="">'+word2+'</span></div>'
@@ -43,6 +51,13 @@ if (url=="live.bilibili.com"){
         $(div2).append(Button)
         Button = '<div data-v-0f5281e6="" class="gift-package live-skin-highlight-bg live-skin-button-text" id="'+ id8 +'" onclick="sendLiveDamku(word8)"><span data-v-0f5281e6="">'+word8+'</span></div>'
         $(div2).append(Button)
+        //歌名框
+        var input='<input id="musicName"  type="text" placeholder="在此输入歌名" class="inputmn"/>'
+        $(div2).append(input)
+        //状态
+        var input='<p id="log">BBQ启动了,Nya~</p>'
+        $(div2).append(input)
+        
     }
 
     function createRuler(){
@@ -50,28 +65,26 @@ if (url=="live.bilibili.com"){
         var fatherLable='<div data-v-1e7d7d58="" data-v-6379e588="" class="seeds-wrap" id="bbq-father-lable"></div>'//定义一个父框
         $(div).append(fatherLable)//创建一个父框
         var div2=document.getElementById("bbq-father-lable")//找到父框
-        var input='<input id="musicName"  type="text" placeholder="在此输入歌名" />'
-        var css='<style type="text/css">#left1{float: left;}#left2{float: left;}#left3{float: left;}#left4{float: left;}#left5{float: left;}#left6{float: left;}#left7{float: left;}#left8{float: left;}</style>'//定义（必须有所有的标签）
-        $(div2).append(css)
-        $(div2).append(input)
+        var css='<style type="text/css">#inputmn{float: left;}#left1{float: left;}#left2{float: left;}#left3{float: left;}#left4{float: left;}#left5{float: left;}#left6{float: left;}#left7{float: left;}#left8{float: left;}</style>'//定义（必须有所有的标签）
+        $(div2).append(css)//css规则创建
     }
 
     function sendLiveDamku(msg,){
         //普通快捷方式
         var token = getCookie(); //设置token
         var roomid = window.location.pathname;
-        roomid=roomid.replace("/","");
+        roomid=roomid.replace("/","");//获取域名'/'字符后的内容
         var url = "https://api.live.bilibili.com/msg/send?color=16777215&fontsize=25&mode=1&msg=" + msg + "&rnd=1&roomid=" + roomid + "&bubble=0&csrf_token=" + token + "&csrf=" + token
-        post(url)
+        post(url)//调用发送端
     }
 
     function sendLiveMusicDamku(){
         var musicName = document.getElementById("musicName").value//获取曲名
         var token = getCookie(); //设置token
         var roomid = window.location.pathname;
-        roomid=roomid.replace("/","");
+        roomid=roomid.replace("/","");//获取域名'/'字符后的内容
         var url = "https://api.live.bilibili.com/msg/send?color=16777215&fontsize=25&mode=1&msg=点歌 " + musicName + "&rnd=1&roomid=" + roomid + "&bubble=0&csrf_token=" + token + "&csrf=" + token
-        post(url)
+        post(url)//调用发送端
     }
 
     function getCookie(){
@@ -90,7 +103,9 @@ if (url=="live.bilibili.com"){
         if (cookieValue != "" && cookieValue != null) {//如果存在指定的cookie值
             return cookieValue;
         } else {//如果cookie的值是空
-            console.error("do you login?")
+            console.error("No login!Now Alert user.")
+            alert("FBI OPEN THE DOOR!!! \n你，你登录了吗？\n什么？！没有？！你怎么敢的啊\n快点的，登录完带你Van~")
+            log("未登录。")
         }
      }
 
@@ -103,24 +118,22 @@ if (url=="live.bilibili.com"){
             },
             success: function(data) { //成功
             console.log(data)
-            console.log("sended")
+            console.log("发送弹幕成功了！")
+            log("成功发送 1 个弹幕")
             },
             error: function(err) { //失败
             console.error(err)
-            console.log("wasted")
+            console.log("弹幕发送失败了QWQ")
+            log(" 1 个弹幕发送失败")
             }
 
     })}//live代码块
+
+    function log(text){
+         local = document.getElementById("log")
+         local.innerHTML = '<p id="log">' + text + '</p> '
+    }
+
 } else {
-  console.log("Err:No bilibili")
+  console.log("现在不是B站呢~")
 }
- 
-
-
-
-
-
-
-
-
-
