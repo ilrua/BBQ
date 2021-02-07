@@ -1,4 +1,5 @@
 console.log('%c Im %c BBQ %c V0.0.1','color:#f00;','font-size:20px;','color:blue;background:yellow;')//特效输出
+alert("正测试安装状态")
 var text = "现在没有消息"
 var local = false
 var id1 = "left1"
@@ -103,7 +104,6 @@ if (url=="live.bilibili.com"){
         roomid=roomid.replace("/","");//获取域名'/'字符后的内容
         var url = "https://api.live.bilibili.com/msg/send?color=" + intColor + "&fontsize=25&mode=1&msg=" + msg + "&rnd=1&roomid=" + roomid + "&bubble=0&csrf_token=" + token + "&csrf=" + token
         post(url)//调用发送端
-        log("Diy弹幕真的有用吗[疑惑]")
     }
 
     function getCookie(){
@@ -153,8 +153,12 @@ if (url=="live.bilibili.com"){
          local.innerHTML = '<p id="log">' + text + '</p> '
     }
 
+} else if(url=="t.bilibili.com") {
+    var table = document.getElementsByClassName('title tc-black fs-14 ls-0');
+    var p='<p id="bbqtag">您正在使用BBQ,nya~</p>'
+    $(table).append(p)//创建BBQ
 } else {
-  console.log("No In Bilibili...")
+  console.log("现在不是B站呢~")
 }
  
 
