@@ -1,29 +1,22 @@
-/*
-Create by Redmaple(ilrua)
-Code by Redmaple(ilrua)
-Art by Bilibili
-Fix by Redmaple(ilrua) and all the internet user.
-*/
-
 console.log('%c Im %c BBQ %c V0.0.1','color:#f00;','font-size:20px;','color:blue;background:yellow;')//特效输出
-        var text = "现在没有消息"
-        var local = false
-        var id1 = "left1"
-        var word1 = "日安！"
-        var id2 = "left2"
-        var word2 = "夜安！"
-        var id3 = "left3"
-        var word3 = "早点休息"
-        var id4 = "left4"
-        var word4 = "老板大气"
-        var id5 = "left6"
-        var word5 = "OHHHHHHHHHH"
-        var id6 = "left5"
-        var word6 = "哈哈哈哈"
-        var id7 = "left7"
-        var word7 = "点歌"
-        var id8 = "left8"
-        var word8 = "直播间好卡"
+var text = "现在没有消息"
+var local = false
+var id1 = "left1"
+var word1 = "日安！"
+var id2 = "left2"
+var word2 = "夜安！"
+var id3 = "left3"
+var word3 = "早点休息"
+var id4 = "left4"
+var word4 = "老板大气"
+var id5 = "left6"
+var word5 = "OHHHHHHHHHH"
+var id6 = "left5"
+var word6 = "哈哈哈哈"
+var id7 = "left7"
+var word7 = "点歌"
+var id8 = "left8"
+var word8 = "直播间好卡"
     //'use strict';
     //萌新友好模式：开
 var url = window.location.hostname//检查域名
@@ -34,6 +27,8 @@ if (url=="live.bilibili.com"){
         createRuler()//创造规则
         var div2 = document.getElementById("bbq-father-lable")//找到父
         div2 = document.getElementById("bbq-father-lable")
+        var diy = document.getElementById("bbq-diy-lable")
+        diy = document.getElementById("bbq-diy-lable")
         //批量制作按钮
         var Button = '<div data-v-0f5281e6="" class="gift-package live-skin-highlight-bg live-skin-button-text" id="'+ id1 +'" onclick="sendLiveDamku(word1)"><span data-v-0f5281e6="">'+word1+'</span></div>'
         $(div2).append(Button)
@@ -51,11 +46,17 @@ if (url=="live.bilibili.com"){
         $(div2).append(Button)
         Button = '<div data-v-0f5281e6="" class="gift-package live-skin-highlight-bg live-skin-button-text" id="'+ id8 +'" onclick="sendLiveDamku(word8)"><span data-v-0f5281e6="">'+word8+'</span></div>'
         $(div2).append(Button)
+        var input='<input id="diytext"  type="text" placeholder="弹幕内容(颜色Beta)" class="inputtx"/>'
+        $(diy).append(input)
+        var input='<input id="colorid"  type="text" placeholder="弹幕颜色16进制(无#)" class="inputcl"/>'
+        $(diy).append(input)
+        Button = '<div data-v-0f5281e6="" class="gift-package live-skin-highlight-bg live-skin-button-text" id="'+ 'clrid' +'" onclick="sendDiyDamku()"><span data-v-0f5281e6="">'+'发送'+'</span></div>'
+        $(diy).append(Button)
         //歌名框
-        var input='<input id="musicName"  type="text" placeholder="在此输入歌名" class="inputmn"/>'
+        input='<input id="musicName"  type="text" placeholder="在此输入歌名" class="inputmn"/>'
         $(div2).append(input)
         //状态
-        var input='<p id="log">BBQ启动了,Nya~</p>'
+        input='<p id="log">BBQ启动了,Nya~</p>'
         $(div2).append(input)
         
     }
@@ -66,6 +67,12 @@ if (url=="live.bilibili.com"){
         $(div).append(fatherLable)//创建一个父框
         var div2=document.getElementById("bbq-father-lable")//找到父框
         var css='<style type="text/css">#inputmn{float: left;}#left1{float: left;}#left2{float: left;}#left3{float: left;}#left4{float: left;}#left5{float: left;}#left6{float: left;}#left7{float: left;}#left8{float: left;}</style>'//定义（必须有所有的标签）
+        $(div2).append(css)//css规则创建
+        div=document.getElementById("pk-guard-vm");//找到礼品框
+        fatherLable='<div data-v-1e7d7d58="" data-v-6379e588="" class="seeds-wrap" id="bbq-diy-lable"></div>'//定义第二个父框
+        $(div).append(fatherLable)//创建一个父框
+        div2=document.getElementById("bbq-diy-lable")//找到父框
+        css='<style type="text/css">#colorid{float: left;}#clrid{float: left;}#diytext{float: left;}</style>'//定义（必须有所有的标签）
         $(div2).append(css)//css规则创建
     }
 
@@ -84,6 +91,17 @@ if (url=="live.bilibili.com"){
         var roomid = window.location.pathname;
         roomid=roomid.replace("/","");//获取域名'/'字符后的内容
         var url = "https://api.live.bilibili.com/msg/send?color=16777215&fontsize=25&mode=1&msg=点歌 " + musicName + "&rnd=1&roomid=" + roomid + "&bubble=0&csrf_token=" + token + "&csrf=" + token
+        post(url)//调用发送端
+    }
+
+    function sendDiyDamku(){
+        var msg = document.getElementById("diytext").value
+        var color = document.getElementById("colorid").value//获取颜色ID
+        var intColor = parseInt(color, 16)
+        var token = getCookie(); //设置token
+        var roomid = window.location.pathname;
+        roomid=roomid.replace("/","");//获取域名'/'字符后的内容
+        var url = "https://api.live.bilibili.com/msg/send?color=" + intColor + "&fontsize=25&mode=1&msg=" + msg + "&rnd=1&roomid=" + roomid + "&bubble=0&csrf_token=" + token + "&csrf=" + token
         post(url)//调用发送端
     }
 
@@ -137,3 +155,13 @@ if (url=="live.bilibili.com"){
 } else {
   console.log("现在不是B站呢~")
 }
+ 
+
+
+
+
+
+
+
+
+
