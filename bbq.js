@@ -1,5 +1,4 @@
 console.log('%c Im %c BBQ %c V0.0.1','color:#f00;','font-size:20px;','color:blue;background:yellow;')//特效输出
-alert("正测试安装状态")
 var text = "现在没有消息"
 var local = false
 var id1 = "left1"
@@ -11,7 +10,7 @@ var word3 = "早点休息"
 var id4 = "left4"
 var word4 = "老板大气"
 var id5 = "left6"
-var word5 = "OHHHHHHHHHH"
+var word5 = "OHHHH"
 var id6 = "left5"
 var word6 = "哈哈哈哈"
 var id7 = "left7"
@@ -26,6 +25,9 @@ if (url=="live.bilibili.com"){
     function createPenel(){
         console.info("Creating Penel")
         createRuler()//创造规则
+        createButton()//创造按钮等杂项
+    }
+    function createButton(){
         var div2 = document.getElementById("bbq-father-lable")//找到父
         div2 = document.getElementById("bbq-father-lable")
         var diy = document.getElementById("bbq-diy-lable")
@@ -54,16 +56,15 @@ if (url=="live.bilibili.com"){
         Button = '<div data-v-0f5281e6="" class="gift-package live-skin-highlight-bg live-skin-button-text" id="'+ 'clrid' +'" onclick="sendDiyDamku()"><span data-v-0f5281e6="">'+'发送'+'</span></div>'
         $(diy).append(Button)
         //歌名框
-        input='<input id="musicName"  type="text" placeholder="在此输入歌名" class="inputmn"/>'
+        var input='<input id="musicName"  type="text" placeholder="在此输入歌名" class="inputmn"/>'
         $(div2).append(input)
         //状态
         input='<p id="log">BBQ启动了,Nya~</p>'
         $(div2).append(input)
-        
-    }
-
+        $("#bbq-father-lable").css("opacity","0.7");//透明设置
+     }
     function createRuler(){
-        var div=document.getElementById("control-panel-ctnr-box");//找到消息框
+        var div=document.getElementsByClassName("header-info-ctnr");//找到消息框
         var fatherLable='<div data-v-1e7d7d58="" data-v-6379e588="" class="seeds-wrap" id="bbq-father-lable"></div>'//定义一个父框
         $(div).append(fatherLable)//创建一个父框
         var div2=document.getElementById("bbq-father-lable")//找到父框
@@ -154,19 +155,12 @@ if (url=="live.bilibili.com"){
     }
 
 } else if(url=="t.bilibili.com") {
+    createPanel();
+    function createPanel(){
     var table = document.getElementsByClassName('title tc-black fs-14 ls-0');
     var p='<p id="bbqtag">您正在使用BBQ,nya~</p>'
     $(table).append(p)//创建BBQ
+    }
 } else {
   console.log("现在不是B站呢~")
 }
- 
-
-
-
-
-
-
-
-
-
