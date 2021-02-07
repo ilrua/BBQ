@@ -103,6 +103,7 @@ if (url=="live.bilibili.com"){
         roomid=roomid.replace("/","");//获取域名'/'字符后的内容
         var url = "https://api.live.bilibili.com/msg/send?color=" + intColor + "&fontsize=25&mode=1&msg=" + msg + "&rnd=1&roomid=" + roomid + "&bubble=0&csrf_token=" + token + "&csrf=" + token
         post(url)//调用发送端
+        log("Diy弹幕真的有用吗[疑惑]")
     }
 
     function getCookie(){
@@ -153,7 +154,7 @@ if (url=="live.bilibili.com"){
     }
 
 } else {
-  console.log("现在不是B站呢~")
+  console.log("No In Bilibili...")
 }
  
 
