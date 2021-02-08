@@ -3,6 +3,8 @@ console.log("[KERNEL]BBQ已启动 载入核心代码中")
 //---kernel code---
 var headpic = kergc("headpicadd")
 if (headpic) {
+    var picbg = document.getElementsByClassName("fixed-bg");
+    picbg.style.['background-image'] = 
     element.setAttribute('background-image', 'url('+headpic+');');
 } else {
     console.log("[KERNEL] 未设置背景")
