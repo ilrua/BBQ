@@ -161,7 +161,7 @@ if (url=="live.bilibili.com"){
     })}//live代码块
 
     function log(text){
-         console.info(["日志] " + text)
+         console.info("[日志] " + text)
          logtable = document.getElementById("log")
          logtable.innerHTML = '<p id="log">' + text + '</p> '
     }
