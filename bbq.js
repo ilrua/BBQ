@@ -21,11 +21,13 @@ var word8 = "直播间好卡"
     //萌新友好模式：开
 var url = window.location.hostname//检查域名
 if (url=="live.bilibili.com"){
+    console.log("[KERNEL]在直播页面上启动了")
     createPenel()//自动开始建立面板
     function createPenel(){
-        console.info("Creating Penel")
+        console.info("[CP]创建面板中")
         createRuler()//创造规则
         createButton()//创造按钮等杂项
+        console.info("[CP]面板创建成功)
     }
     function createButton(){
         var div2 = document.getElementById("bbq-father-lable")//找到父
@@ -85,6 +87,7 @@ if (url=="live.bilibili.com"){
         roomid=roomid.replace("/","");//获取域名'/'字符后的内容
         var url = "https://api.live.bilibili.com/msg/send?color=16777215&fontsize=25&mode=1&msg=" + msg + "&rnd=1&roomid=" + roomid + "&bubble=0&csrf_token=" + token + "&csrf=" + token
         post(url)//调用发送端
+        console.log("[SLD]提交一个普通弹幕")
     }
 
     function sendLiveMusicDamku(){
@@ -94,6 +97,7 @@ if (url=="live.bilibili.com"){
         roomid=roomid.replace("/","");//获取域名'/'字符后的内容
         var url = "https://api.live.bilibili.com/msg/send?color=16777215&fontsize=25&mode=1&msg=点歌 " + musicName + "&rnd=1&roomid=" + roomid + "&bubble=0&csrf_token=" + token + "&csrf=" + token
         post(url)//调用发送端
+        console.log("[SLMD]提交一个点歌弹幕")
     }
 
     function sendDiyDamku(){
@@ -105,6 +109,7 @@ if (url=="live.bilibili.com"){
         roomid=roomid.replace("/","");//获取域名'/'字符后的内容
         var url = "https://api.live.bilibili.com/msg/send?color=" + intColor + "&fontsize=25&mode=1&msg=" + msg + "&rnd=1&roomid=" + roomid + "&bubble=0&csrf_token=" + token + "&csrf=" + token
         post(url)//调用发送端
+        console.log("[SDD]提交一个自定义弹幕")
     }
 
     function getCookie(){
@@ -121,9 +126,10 @@ if (url=="live.bilibili.com"){
             }
         }
         if (cookieValue != "" && cookieValue != null) {//如果存在指定的cookie值
+            console.error("[GC]已获取到用户Cookie Bili_jct值为" + cookieValue)
             return cookieValue;
         } else {//如果cookie的值是空
-            console.error("No login!Now Alert user.")
+            console.error("[GC]未获取到用户Cookie Bili_jct值为" + cookieValue)
             alert("FBI OPEN THE DOOR!!! \n你，你登录了吗？\n什么？！没有？！你怎么敢的啊\n快点的，登录完带你Van~")
             log("未登录。")
         }
@@ -138,12 +144,12 @@ if (url=="live.bilibili.com"){
             },
             success: function(data) { //成功
             console.log(data)
-            console.log("发送弹幕成功了！")
+            console.log("[POST]提交到服务器一条弹幕。一条成功")
             log("成功发送 1 个弹幕")
             },
             error: function(err) { //失败
             console.error(err)
-            console.log("弹幕发送失败了QWQ")
+            console.log("[POST]提交到服务器零条弹幕。一条失败")
             log(" 1 个弹幕发送失败")
             }
 
@@ -155,6 +161,7 @@ if (url=="live.bilibili.com"){
     }
 
 } else if(url=="t.bilibili.com") {
+    console.log("[KERNEL]在动态页面上启动了")
     createPanel();
     function createPanel(){
     var table = document.getElementsByClassName('title tc-black fs-14 ls-0');
