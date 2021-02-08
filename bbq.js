@@ -1,4 +1,61 @@
 console.log('%c Im %c BBQ %c V0.0.1','color:#f00;','font-size:20px;','color:white;background:black;')//特效输出
+console.log("[KERNEL]BBQ已启动 载入核心代码中")
+//---kernel code---
+var headpic = kergc("headpicadd")
+if (headpic) {
+    element.setAttribute('background-image', 'url('+headpic+');');
+} else {
+    console.log("[KERNEL] 未设置背景")
+}
+
+function kergc(ckname){
+console.log("[K-GC]正在获取Cookie")
+        var cookieName = ckname;
+        var cookieValue = null;//返回cookie的value值
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');//将获得的所有cookie切割成数组
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];//得到某下标的cookies数组
+                if (cookie.substring(0, cookieName.length + 2).trim() == cookieName.trim() + "=") {//如果存在该cookie的话就将cookie的值拿出来
+                    cookieValue = cookie.substring(cookieName.length + 2, cookie.length);
+                    break
+                }
+            }
+        }
+        if (cookieValue != "" && cookieValue != null) {//如果存在指定的cookie值
+            console.log("[GC]已获取到用户Cookie 值为 " + cookieValue)
+            return cookieValue;
+        } else {//如果cookie的值是空
+            console.error("[GC]未获取到用户Cookie 值为 " + cookieValue)
+        }
+}
+
+function sett(varb,text){
+    var url = window.location.hostname//检查域名
+    if(url=="t.bilibili.com") {
+        //str.toLowerCase()全部转换到小写
+        if(varb.toLowerCase()=="shp") {
+            if(text){
+                if(text == "null"){
+                //重置
+                document.cookie = "headpicadd=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                } else {
+                var headpicadd = text
+                document.cookie = "headpicadd="+headpicadd;
+                console.log("[ST]已设置背景图片地址为"+headpicadd+'有没有把所有的"/"符号换成"\"')
+                }
+            } else {
+                console.error("[ST]错误: 未填写文件地址")
+            }
+        } else {
+            console.error('[ST]错误: ' + varb + ' 是未知变量')
+        }
+    } else {
+        console.log("[ST]动态页面才可以调用此函数")
+    }
+}
+//---kernel code end---
+console.log("[KERNEL]BBQ已启动 已载入核心代码中")
 var text = "现在没有消息"
 var local = false
 var id1 = "left1"
