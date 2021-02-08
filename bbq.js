@@ -1,11 +1,57 @@
 console.log('%c Im %c BBQ %c V0.0.1','color:#f00;','font-size:20px;','color:white;background:black;')//特效输出
 console.log("[KERNEL]BBQ已启动 载入核心代码中")
+var chk = "chk"
+//更改版本的时候记得全局搜索bbqver
 //---kernel code---
+function update(text){
+    //请注意更改此版本号
+    var bbqver = 001
+    //版本号001
+    //更新
+    //用法update(varb)
+    if(text == "chk"){
+    var url = "https://ilrua.github.io/ilrua/bbq/info.json"//更新地址
+            var request = new XMLHttpRequest();
+            request.open("get", url);/*设置请求方法与路径*/
+            request.send(null);/*不发送数据到服务器*/
+            request.onload = function () {/*XHR对象获取到返回信息后执行*/
+                if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
+                    var json = JSON.parse(request.responseText);
+                    for(var i=0;i<json.length;i++){
+                    	console.log(json[i].name);
+                    }
+                    var json = JSON.parse(request.responseText);
+                    console.log("[UPDATE]已获取更新信息");
+                }
+                    //是的 因为特性 我们只能在这里进行判断。
+                    var version = json.version
+                    var info = json.info
+                    var website = json.website
+                    var locver=version.replace(".","");
+                    if(bbqver < locver){
+                        console.log("[CHK]有新的更新")
+                        console.log("[CHK]当前版本" + bbqver)
+                        console.log("[CHK]新版本: " + version)
+                        console.log("[CHK]更新内容")
+                        console.log(info)
+                        console.log("[CHK]下载地址: " + website)
+                    } else {
+                        console.log("[CHK]您的BBQ是最新的。请保持")
+                        console.log("[CHK]当前版本" + bbqver)
+                        console.log("[CHK]更新内容")
+                        console.log(info)
+                        console.log("[CHK]下载地址: " + website)
+                    }
+            }
+    } else {
+    console.log("[UPDATE]错误的函数")
+    }
+}
+/*
 var headpic = kergc("headpicadd")
 if (headpic) {
     var picbg = document.getElementsByClassName("fixed-bg");
-    picbg.style.['background-image'] = 
-    element.setAttribute('background-image', 'url('+headpic+');');
+    picbg.style.background = 'url('+headpic+');'
 } else {
     console.log("[KERNEL] 未设置背景")
 }
@@ -50,12 +96,14 @@ function sett(varb,text){
                 console.error("[ST]错误: 未填写文件地址")
             }
         } else {
-            console.error('[ST]错误: ' + varb + ' 是未知变量')
+            console.error('[ST]错误: ' + varb + ' 无法被处理')
         }
     } else {
         console.log("[ST]动态页面才可以调用此函数")
     }
 }
+因为发生未知错误所以此功能暂时禁用
+*/
 //---kernel code end---
 console.log("[KERNEL]BBQ已启动 已载入核心代码中")
 var text = "现在没有消息"
