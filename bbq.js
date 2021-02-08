@@ -132,7 +132,7 @@ if (url=="live.bilibili.com"){
             }
         }
         if (cookieValue != "" && cookieValue != null) {//如果存在指定的cookie值
-            console.error("[GC]已获取到用户Cookie Bili_jct值为 " + cookieValue)
+            console.log("[GC]已获取到用户Cookie Bili_jct值为 " + cookieValue)
             return cookieValue;
         } else {//如果cookie的值是空
             console.error("[GC]未获取到用户Cookie Bili_jct值为 " + cookieValue)
