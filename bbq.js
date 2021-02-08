@@ -1,4 +1,4 @@
-console.log('%c Im %c BBQ %c V0.0.1','color:#f00;','font-size:20px;','color:blue;background:yellow;')//特效输出
+console.log('%c Im %c BBQ %c V0.0.1','color:#f00;','font-size:20px;','color:white;background:black;')//特效输出
 var text = "现在没有消息"
 var local = false
 var id1 = "left1"
@@ -26,7 +26,9 @@ if (url=="live.bilibili.com"){
     function createPenel(){
         console.info("[CP]创建面板中")
         createRuler()//创造规则
+        console.info("[CP]已创建约束元素")
         createButton()//创造按钮等杂项
+        console.info("[CP]已创建控件元素")
         console.info("[CP]面板创建成功)
     }
     function createButton(){
@@ -130,10 +132,10 @@ if (url=="live.bilibili.com"){
             }
         }
         if (cookieValue != "" && cookieValue != null) {//如果存在指定的cookie值
-            console.error("[GC]已获取到用户Cookie Bili_jct值为" + cookieValue)
+            console.error("[GC]已获取到用户Cookie Bili_jct值为 " + cookieValue)
             return cookieValue;
         } else {//如果cookie的值是空
-            console.error("[GC]未获取到用户Cookie Bili_jct值为" + cookieValue)
+            console.error("[GC]未获取到用户Cookie Bili_jct值为 " + cookieValue)
             alert("FBI OPEN THE DOOR!!! \n你，你登录了吗？\n什么？！没有？！你怎么敢的啊\n快点的，登录完带你Van~")
             log("未登录。")
         }
@@ -148,12 +150,10 @@ if (url=="live.bilibili.com"){
             withCredentials: true // 这里设置了withCredentials，带cookie请求。
             },
             success: function(data) { //成功
-            console.log(data)
-            console.log("[POST]提交到服务器一条弹幕。一条成功")
+            console.log("%c[POST]提交到服务器一条弹幕。一条成功",'color:white;background:black;')
             log("成功发送 1 个弹幕")
             },
             error: function(err) { //失败
-            console.error(err)
             console.log("[POST]提交到服务器零条弹幕。一条失败")
             log(" 1 个弹幕发送失败")
             }
@@ -161,6 +161,7 @@ if (url=="live.bilibili.com"){
     })}//live代码块
 
     function log(text){
+         console.info(["日志] " + text)
          logtable = document.getElementById("log")
          logtable.innerHTML = '<p id="log">' + text + '</p> '
     }
