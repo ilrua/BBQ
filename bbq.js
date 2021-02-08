@@ -29,7 +29,7 @@ if (url=="live.bilibili.com"){
         console.info("[CP]已创建约束元素")
         createButton()//创造按钮等杂项
         console.info("[CP]已创建控件元素")
-        console.info("[CP]面板创建成功)
+        console.info("[CP]面板创建成功")
     }
     function createButton(){
         var div2 = document.getElementById("bbq-father-lable")//找到父
