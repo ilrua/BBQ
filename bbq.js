@@ -150,8 +150,8 @@ if (url=="live.bilibili.com"){
     })}//live代码块
 
     function log(text){
-         local = document.getElementById("log")
-         local.innerHTML = '<p id="log">' + text + '</p> '
+         logtable = document.getElementById("log")
+         logtable.innerHTML = '<p id="log">' + text + '</p> '
     }
 
 } else if(url=="t.bilibili.com") {
