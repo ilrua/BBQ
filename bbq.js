@@ -9,7 +9,7 @@ function update(text){
     //版本号001
     //更新
     //用法update(varb)
-    if(text == "chk"){
+    if(text.toLowerCase() == "chk"){
     var url = "https://ilrua.github.io/ilrua/bbq/info.json"//更新地址
             var request = new XMLHttpRequest();
             request.open("get", url);/*设置请求方法与路径*/
