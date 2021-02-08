@@ -82,6 +82,7 @@ if (url=="live.bilibili.com"){
 
     function sendLiveDamku(msg,){
         //普通快捷方式
+        console.log("[SLD]启动提交普通弹幕函数")
         var token = getCookie(); //设置token
         var roomid = window.location.pathname;
         roomid=roomid.replace("/","");//获取域名'/'字符后的内容
@@ -91,6 +92,7 @@ if (url=="live.bilibili.com"){
     }
 
     function sendLiveMusicDamku(){
+        console.log("[SLMD]启动提交点歌弹幕函数")
         var musicName = document.getElementById("musicName").value//获取曲名
         var token = getCookie(); //设置token
         var roomid = window.location.pathname;
@@ -101,6 +103,7 @@ if (url=="live.bilibili.com"){
     }
 
     function sendDiyDamku(){
+        console.log("[SDD]启动提交自定义弹幕函数")
         var msg = document.getElementById("diytext").value
         var color = document.getElementById("colorid").value//获取颜色ID
         var intColor = parseInt(color, 16)
@@ -113,6 +116,7 @@ if (url=="live.bilibili.com"){
     }
 
     function getCookie(){
+        console.log("[GC]正在获取Cookie")
         var cookieName = "bili_jct";
         var cookieValue = null;//返回cookie的value值
         if (document.cookie && document.cookie != '') {
@@ -136,6 +140,7 @@ if (url=="live.bilibili.com"){
      }
 
     function post(url){
+        console.log("[POST]尝试Post到服务器以创建弹幕")
     $.ajax({//指向了Jquery库，b站有Jquery
             url: url,
             type: 'POST',
