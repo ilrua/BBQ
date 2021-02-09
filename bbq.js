@@ -4,6 +4,33 @@ var chk = "chk"
 var news = "news"
 //更改载入器版本的时候记得全局搜索bbqver
 //---kernel code---
+function chkupdt(){
+    var bbqver = 001
+        var url = "https://ilrua.github.io/ilrua/bbq/info.json"//更新地址
+            var request = new XMLHttpRequest();
+            request.open("get", url);/*设置请求方法与路径*/
+            request.send(null);/*不发送数据到服务器*/
+            request.onload = function () {/*XHR对象获取到返回信息后执行*/
+                if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
+                    var json = JSON.parse(request.responseText);
+                    for(var i=0;i<json.length;i++){
+                    	console.log(json[i].name);
+                    }
+                    var json = JSON.parse(request.responseText);
+                    console.log("[UPDATE]已获取更新信息");
+                }
+                    //是的 因为特性 我们只能在这里进行判断。
+                    var version = json.version
+                    var info = json.info
+                    var website = json.website
+                    var locver=version.replace(".","");
+                    if(bbqver < locver){
+                        console.log("[CHK]有新的BBQ载入器更新。键入update(chk)检查")
+                    } else {
+                        console.log("[CHK]您的BB载入器是最新的。请保持")
+                    }
+            }
+}
 function update(text){
     //请注意更改此版本号
     var bbqver = 001
