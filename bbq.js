@@ -32,13 +32,13 @@ function update(text){
                         console.log("[CHK]有新的BBQ载入器更新")
                         console.log("[CHK]当前版本" + bbqver)
                         console.log("[CHK]新版本: " + version)
-                        console.log("[CHK]更新内容")
+                        console.log("[CHK]载入器更新内容")
                         console.log(info)
                         console.log("[CHK]下载地址: " + website)
                     } else {
                         console.log("[CHK]您的BB载入器是最新的。请保持")
                         console.log("[CHK]当前版本" + bbqver)
-                        console.log("[CHK]更新内容")
+                        console.log("[CHK]载入器更新内容")
                         console.log(info)
                         console.log("[CHK]下载地址: " + website)
                     }
