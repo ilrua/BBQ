@@ -4,6 +4,7 @@ var chk = "chk"
 var news = "news"
 //更改载入器版本的时候记得全局搜索bbqver
 //---kernel code---
+function chkupdt()
 function chkupdt(){
     var bbqver = 001
         var url = "https://ilrua.github.io/ilrua/bbq/info.json"//更新地址
