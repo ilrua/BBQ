@@ -1,6 +1,7 @@
 console.log('%c Im %c BBQ %c V0.0.1','color:#f00;','font-size:20px;','color:white;background:black;')//特效输出
 console.log("[KERNEL]BBQ已启动 载入核心代码中")
 var chk = "chk"
+var news = "news"
 //更改载入器版本的时候记得全局搜索bbqver
 //---kernel code---
 function update(text){
@@ -43,8 +44,10 @@ function update(text){
                         console.log("[CHK]下载地址: " + website)
                     }
             }
+    } else if(text.toLowerCase() == "news"){
+        
     } else {
-    console.log("[UPDATE]错误的函数")
+        console.log("[UPDATE]错误的函数")
     }
 }
 /*
