@@ -73,7 +73,27 @@ function update(text){
                     }
             }
     } else if(text.toLowerCase() == "news"){
-        
+        var bbqver = 001
+        var url = "https://ilrua.github.io/ilrua/bbq/updt.json"//更新地址
+            var request = new XMLHttpRequest();
+            request.open("get", url);/*设置请求方法与路径*/
+            request.send(null);/*不发送数据到服务器*/
+            request.onload = function () {/*XHR对象获取到返回信息后执行*/
+                if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
+                    var json = JSON.parse(request.responseText);
+                    for(var i=0;i<json.length;i++){
+                    	console.log(json[i].name);
+                    }
+                    var json = JSON.parse(request.responseText);
+                    console.log("[UPDATE]已获取更新信息");
+                }
+                    //是的 因为特性 我们只能在这里进行判断。
+                    var version = json.version
+                    var info = json.info
+                    console.log("[CHK]BBQ云上版本: " + version)
+                    console.log("[CHK]BBQ更新内容: ")
+                    console.log(info)
+                    }
     } else {
         console.log("[UPDATE]错误的函数")
     }
