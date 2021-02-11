@@ -1,4 +1,6 @@
 # BBQ FAQ
+中文简体 |[English_US](https://github.com/ilrua/BBQ/blob/main/en_us.md)
+English Version update is slowwwwwwwwww.
 1. BBQ是什么
 BBQ是一个bilibili辅助器。让您可以更方便的使用Bilibili。
 2. 为什么你们写的代码很烂
