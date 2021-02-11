@@ -13,6 +13,7 @@ Fewer features are first because I don’t know how to write JS. Some function c
 Browsers that support some Chrome kernels. (Such as Edge-Chrome, Chrome(?) [The browsers listed here may not support this extension]) In short, I don't know.
 (Chrome and Chrome kernel Edge can be used)
 6. Why is it called BBQ
+
 Don't you like barbecue?
 # Features
 The following functions are currently integrated:
