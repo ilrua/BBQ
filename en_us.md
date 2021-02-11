@@ -11,7 +11,7 @@ I dont kown what is JS(abababa)
 
 3. Why the extension is .zip(OR .rar)
 
-First.Im Chinese.An error will occur if it is loaded in the .crx format.（The app does not come from the Goooooooogle app store）。If I want to arrange it in the Gooooooogle app store, I need Over the Great Firewall.I cant do it.
+First.Im Chinese.An error will occur if it is loaded in the .crx format.（The app does not come from the Goooooooogle app store）。If I want to take it in the Gooooooogle app store, I need Over the Great Firewall.I cant do it.
 
 4. Why are there so few functions, even some functions are not available
 
