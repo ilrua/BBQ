@@ -163,7 +163,7 @@ var word8 = "直播间好卡"
     //'use strict';
     //萌新友好模式：开
 xurl = window.location.href; 
-var link2 = url.substring(0,30);
+var link2 = xurl.substring(0,30);
 var url = window.location.hostname//检查域名
 if (url=="live.bilibili.com"){
     console.log("[KERNEL]在直播页面上启动了")
@@ -320,7 +320,65 @@ if (url=="live.bilibili.com"){
     $(table).append(p)//创建BBQ
     }
 } else if(link2=="https://www.bilibili.com/video") {
-    console.log("[KERNEL]在视频页面上启动了")
+    console.log("[KERNEL]在视频页面上启动了"+link2)
+    setTimeout("createPinel()",2000)
+    var cp = "createPinel"
+    function createPinel(){
+    //一键三连
+    var head = document.getElementsByTagName("head")
+    var ops = document.getElementsByClassName("ops") 
+    //var ops = document.getElementsByTagName("body")
+    var css3style = '<style id="likevidcss">.btn3go{width: 50px;height: 50px;border-radius:50%;background-color: #92dae8;border: 1px solid #84bec9;position:absolute;bottom:10px;border:1px solid #aaa}.btn3icon{width: 40px;height: 40px;background-clip:content-box;}</style>'
+    var btn3style = '<button class="btn3go" onclick="likeVideo();"><span><image class="btn3icon" src="https://ae01.alicdn.com/kf/U1c987f6b116d4655bb4d6c5ffd0e40319.jpg"></image></span></button>'
+    $(head).append(css3style);
+    $(ops).append(btn3style);
+    console.log("%c[CP]正在创造面板。请注意。当你连接到服务器的延迟大于2000ms时，面板就会失效。此bug暂时无法被解决\n您如果无法看到一键三连等元素，请在此输入'retry(cp)'区分大小写",'color:white;background:black;')
+    };
+
+    function retry(func){
+        eval(func+"()");
+    };
+
+    function likeVideo(){
+        csrf = getCookie()
+        avid=xurl.replace(link2,"");
+        avid = bv2av(bvid,"av")
+        apiurl = 'https://api.bilibili.com/x/web-interface/archive/like/triple' + '?aid=' + avid +'&csrf=' +csrf 
+        $.ajax({//指向了Jquery库，b站有Jquery
+            url: apiurl,
+            type: 'POST',
+            xhrFields: {
+            withCredentials: true // 这里设置了withCredentials，带cookie请求。
+            },
+            success: function(data) { //成功
+                //此功能耗资10个硬币
+            console.log("%c[POST]成功三连;客户端没有信息",'color:white;background:black;')
+            alert('三连了,再点是没用的哦。你现在是看不到的呢。要按F5刷新才能看得到的呢')
+            },
+            error: function(err) { //失败
+            console.log("[POST]三连失败")
+            }
+    })
+}
+
+    function getCookie(){
+        console.log("[GC]正在获取Cookie")
+        var cookieName = "bili_jct";
+        var cookieValue = null;//返回cookie的value值
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');//将获得的所有cookie切割成数组
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];//得到某下标的cookies数组
+                if (cookie.substring(0, cookieName.length + 2).trim() == cookieName.trim() + "=") {//如果存在该cookie的话就将cookie的值拿出来
+                    cookieValue = cookie.substring(cookieName.length + 2, cookie.length);
+                    console.log("[GC]Cookie值为" + cookieValue)
+                    return cookieValue
+                    break
+                }
+            }
+        }
+
+}
 } else {
   console.log("现在不是B站呢~")
 }
