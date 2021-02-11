@@ -43,3 +43,6 @@ OK.
 You can get the beta version under this link. But the cloud js loaded by the plugin is the release version
 
 Snapshot version link: [0.0.1 snapshot](https://github.com/ilrua/BBQ/blob/main/flashpic/bbq0.0.1.crx)
+
+#Hey Guy.
+**Do you kown?BBQ Doesnt support English;)**
