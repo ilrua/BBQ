@@ -14,3 +14,4 @@
 
 # 测试版
 您可以在这个链接下获取测试版。但是插件加载的云js是发布版
+快照版链接[0.0.1快照](https://github.com/ilrua/BBQ/blob/main/flashpic/bbq0.0.1.crx?raw=true)
