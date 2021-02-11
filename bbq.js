@@ -32,6 +32,48 @@ function chkupdt(){
                     }
             }
 }
+
+function bv2av(vid,mode){
+    //BV2AV函数除判断外的所有代码均来自来自 https://www.zhihu.com/question/381784377/answer/1099438784。（知乎或许不是FW
+var table = "fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF",
+  tr = new Object();
+for (var i = 0; i < 58; i++) {
+  tr[table[i]] = i;
+}
+var s = [11, 10, 3, 8, 4, 6],
+  xor = 177451812,
+  add = 8728348608;
+
+if (mode == "av"){
+    var avid = dec(vid);
+    console.log("[B2A]已获取到AVID: "+avid);
+    return avid;
+} else if(mode == "bv"){
+    var bvid = enc(vid);
+    console.log("[B2A]已获取到BVID: "+bvid);
+    return bvid;
+} else {
+    console.log("[B2A]变量MODE的值必须在av与bv其一");
+    return false;
+}
+function dec(x) {
+  var r = 0;
+  for (var i = 0; i < 6; i++) {
+    r += tr[x[s[i]]] * 58 ** i;
+  }
+  return (r - add) ^ xor;
+}
+
+function enc(x) {
+  x = (x ^ xor) + add;
+  r = "BV1  4 1 7  ".split("");
+  for (var i = 0; i < 6; i++) {
+    r[s[i]] = table[Math.floor(x / 58 ** i) % 58];
+  }
+  return r.join("");
+}
+}
+
 function update(text){
     //请注意更改此版本号
     var bbqver = 001
@@ -98,63 +140,6 @@ function update(text){
         console.log("[UPDATE]错误的函数")
     }
 }
-/*
-var headpic = kergc("headpicadd")
-if (headpic) {
-    var picbg = document.getElementsByClassName("fixed-bg");
-    picbg.style.background = 'url('+headpic+');'
-} else {
-    console.log("[KERNEL] 未设置背景")
-}
-
-function kergc(ckname){
-console.log("[K-GC]正在获取Cookie")
-        var cookieName = ckname;
-        var cookieValue = null;//返回cookie的value值
-        if (document.cookie && document.cookie != '') {
-            var cookies = document.cookie.split(';');//将获得的所有cookie切割成数组
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i];//得到某下标的cookies数组
-                if (cookie.substring(0, cookieName.length + 2).trim() == cookieName.trim() + "=") {//如果存在该cookie的话就将cookie的值拿出来
-                    cookieValue = cookie.substring(cookieName.length + 2, cookie.length);
-                    break
-                }
-            }
-        }
-        if (cookieValue != "" && cookieValue != null) {//如果存在指定的cookie值
-            console.log("[GC]已获取到用户Cookie 值为 " + cookieValue)
-            return cookieValue;
-        } else {//如果cookie的值是空
-            console.error("[GC]未获取到用户Cookie 值为 " + cookieValue)
-        }
-}
-
-function sett(varb,text){
-    var url = window.location.hostname//检查域名
-    if(url=="t.bilibili.com") {
-        //str.toLowerCase()全部转换到小写
-        if(varb.toLowerCase()=="shp") {
-            if(text){
-                if(text == "null"){
-                //重置
-                document.cookie = "headpicadd=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                } else {
-                var headpicadd = text
-                document.cookie = "headpicadd="+headpicadd;
-                console.log("[ST]已设置背景图片地址为"+headpicadd+'有没有把所有的"/"符号换成"\"')
-                }
-            } else {
-                console.error("[ST]错误: 未填写文件地址")
-            }
-        } else {
-            console.error('[ST]错误: ' + varb + ' 无法被处理')
-        }
-    } else {
-        console.log("[ST]动态页面才可以调用此函数")
-    }
-}
-因为发生未知错误所以此功能暂时禁用
-*/
 //---kernel code end---
 console.log("[KERNEL]BBQ已启动 已载入核心代码中")
 var text = "现在没有消息"
@@ -177,6 +162,8 @@ var id8 = "left8"
 var word8 = "直播间好卡"
     //'use strict';
     //萌新友好模式：开
+xurl = window.location.href; 
+var link2 = url.substring(0,30);
 var url = window.location.hostname//检查域名
 if (url=="live.bilibili.com"){
     console.log("[KERNEL]在直播页面上启动了")
@@ -332,6 +319,8 @@ if (url=="live.bilibili.com"){
     var p='<p id="bbqtag">您正在使用BBQ,nya~</p>'
     $(table).append(p)//创建BBQ
     }
+} else if(link2=="https://www.bilibili.com/video") {
+    console.log("[KERNEL]在视频页面上启动了")
 } else {
   console.log("现在不是B站呢~")
 }
