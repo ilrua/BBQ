@@ -1,4 +1,6 @@
 # BBQ FAQ
+[中文简体](https://github.com/ilrua/BBQ/blob/main/README.md)|English_US
+
 1. What is "BBQ
 BBQ is a extension of bilibili.It can makes bilibili easy.
 2. Why your code like a sh*t
