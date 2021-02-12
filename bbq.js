@@ -4,34 +4,7 @@ var chk = "chk"
 var news = "news"
 //更改载入器版本的时候记得全局搜索bbqver
 //---kernel code---
-chkupdt()
-function chkupdt(){
-    var bbqver = 001
-        var url = "https://ilrua.github.io/ilrua/bbq/info.json"//更新地址
-            var request = new XMLHttpRequest();
-            request.open("get", url);/*设置请求方法与路径*/
-            request.send(null);/*不发送数据到服务器*/
-            request.onload = function () {/*XHR对象获取到返回信息后执行*/
-                if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
-                    var json = JSON.parse(request.responseText);
-                    for(var i=0;i<json.length;i++){
-                    	console.log(json[i].name);
-                    }
-                    var json = JSON.parse(request.responseText);
-                    console.log("[UPDATE]已获取更新信息");
-                }
-                    //是的 因为特性 我们只能在这里进行判断。
-                    var version = json.version
-                    var info = json.info
-                    var website = json.website
-                    var locver=version.replace(".","");
-                    if(bbqver < locver){
-                        console.log("[CHK]有新的BBQ载入器更新。键入update(chk)检查")
-                    } else {
-                        console.log("[CHK]您的BB载入器是最新的。请保持")
-                    }
-            }
-}
+
 
 function bv2av(vid,mode){
     //BV2AV函数除判断外的所有代码均来自来自 https://www.zhihu.com/question/381784377/answer/1099438784。（知乎或许不是FW
@@ -76,45 +49,7 @@ function enc(x) {
 
 function update(text){
     //请注意更改此版本号
-    var bbqver = 001
-    //版本号001
-    //更新
-    //用法update(varb)
-    if(text.toLowerCase() == "chk"){
-    var url = "https://ilrua.github.io/ilrua/bbq/info.json"//更新地址
-            var request = new XMLHttpRequest();
-            request.open("get", url);/*设置请求方法与路径*/
-            request.send(null);/*不发送数据到服务器*/
-            request.onload = function () {/*XHR对象获取到返回信息后执行*/
-                if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
-                    var json = JSON.parse(request.responseText);
-                    for(var i=0;i<json.length;i++){
-                    	console.log(json[i].name);
-                    }
-                    var json = JSON.parse(request.responseText);
-                    console.log("[UPDATE]已获取更新信息");
-                }
-                    //是的 因为特性 我们只能在这里进行判断。
-                    var version = json.version
-                    var info = json.info
-                    var website = json.website
-                    var locver=version.replace(".","");
-                    if(bbqver < locver){
-                        console.log("[CHK]有新的BBQ载入器更新")
-                        console.log("[CHK]当前版本" + bbqver)
-                        console.log("[CHK]新版本: " + version)
-                        console.log("[CHK]载入器更新内容")
-                        console.log(info)
-                        console.log("[CHK]下载地址: " + website)
-                    } else {
-                        console.log("[CHK]您的BB载入器是最新的。请保持")
-                        console.log("[CHK]当前版本" + bbqver)
-                        console.log("[CHK]载入器更新内容")
-                        console.log(info)
-                        console.log("[CHK]下载地址: " + website)
-                    }
-            }
-    } else if(text.toLowerCase() == "news"){
+    if(text.toLowerCase() == "news"){
         var bbqver = 001
         var url = "https://ilrua.github.io/ilrua/bbq/updt.json"//更新地址
             var request = new XMLHttpRequest();
