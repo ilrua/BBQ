@@ -40,7 +40,7 @@ OK.
 
 # Privacy agreement and open source license
 
-### **BBQ respects your privacy very much. **
+### ** BBQ respects your privacy very much. **
 
 The following content, BBQ referred to as "we"
 
@@ -50,7 +50,7 @@ We promise:
 
 2. We will not disclose your private content in any way or in any form.
 
-### At the same time, you must respect our **Open Source License Regulations**
+### ** At the same time, you must respect our **Open Source License Regulations **
 
 BBQ believes that copying other people's works is a violation of ethical standards.
 
@@ -73,7 +73,7 @@ The following content, BBQ is referred to as "this work"
 
 4. This work is **not for commercial use**. You should not sell (and other profit-making activities) this work and variants of this work in any form. Otherwise, you are at your own risk.
 
-**When to comply? **
+** When to comply? **
 
 When you preview the bbq code or run bbq in any form, any way, it will be deemed that you agree to the above two regulations.
 
