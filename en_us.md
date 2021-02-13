@@ -82,5 +82,12 @@ You can get the beta version under this link. But the cloud js loaded by the plu
 
 Snapshot version link: [0.0.1 snapshot](https://github.com/ilrua/BBQ/blob/main/flashpic/bbq0.0.1.crx)
 
-#Hey Guy.
+# Help Me!!!
+
+Sorry.But I cant.The help docm. is not support English...
+
+If you have translate application.You can read it on github.com/ilrua/BBQ/doc/help.md
+
+# Hey Guy.
+
 **Do you kown?BBQ Doesnt support English;)**
