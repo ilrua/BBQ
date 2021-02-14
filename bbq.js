@@ -2,7 +2,6 @@ console.log('%c Im %c BBQ %c V0.0.1','color:#f00;','font-size:20px;','color:whit
 console.log("[KERNEL]BBQ已启动 载入核心代码中")
 var chk = "chk"
 var news = "news"
-//更改载入器版本的时候记得全局搜索bbqver
 //---kernel code---
 
 
@@ -48,9 +47,7 @@ function enc(x) {
 }
 
 function update(text){
-    //请注意更改此版本号
     if(text.toLowerCase() == "news"){
-        var bbqver = 001
         var url = "https://ilrua.github.io/ilrua/bbq/updt.json"//更新地址
             var request = new XMLHttpRequest();
             request.open("get", url);/*设置请求方法与路径*/
