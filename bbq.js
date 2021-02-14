@@ -1,3 +1,12 @@
+/*
+Creator : Redmaple(ilrua)
+Project Name : Be Bilibili Cute(BBQ)
+Programming Language : JavaScript,HTML,CSS,MarkDown.
+Copyright (c) 2021-2077 HyperStudioz.
+
+你孤独吗？
+
+*/
 console.log('%c Im %c BBQ %c V0.0.1','color:#f00;','font-size:20px;','color:white;background:black;')//特效输出
 console.log("[KERNEL]BBQ已启动 载入核心代码中")
 var chk = "chk"
