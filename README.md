@@ -1,6 +1,8 @@
 # BBQ FAQ
+使用CC-BY-NC-SA协议
 ![CC-BY-NC-SA](https://ftp.bmp.ovh/imgs/2021/02/df22baa994decdf5.png)
 ![CC-BY-NC-SA](https://ftp.bmp.ovh/imgs/2021/02/b71d5f70bd1f17a4.png)
+
 中文简体 |[English_US](https://github.com/ilrua/BBQ/blob/main/en_us.md)
 
 English Version update is slowwwwwwwwww.
