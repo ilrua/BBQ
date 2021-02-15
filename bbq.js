@@ -4,7 +4,7 @@ Project Name : Be Bilibili Cute(BBQ)
 Programming Language : JavaScript,HTML,CSS,MarkDown.
 Copyright (c) 2021-2077 HyperStudioz.
 
-你孤独吗？
+Someday we will talk all night,Of all that we've been through.
 
 */
 console.log('%c Im %c BBQ %c V0.0.1','color:#f00;','font-size:20px;','color:white;background:black;')//特效输出
