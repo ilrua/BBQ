@@ -8,6 +8,7 @@ Copyright (c) 2021-2077 HyperStudioz.
 
 */
 console.log('%c Im %c BBQ %c V0.0.1','color:#f00;','font-size:20px;','color:white;background:black;')//特效输出
+console.log("[BBQ]BBQ给大家拜年了！新年快乐！万事如意！希望这个小项目能被你们喜欢~")
 console.log("[KERNEL]BBQ已启动 载入核心代码中")
 var chk = "chk"
 var news = "news"
@@ -108,6 +109,7 @@ var link2 = xurl.substring(0,30);
 var url = window.location.hostname//检查域名
 if (url=="live.bilibili.com"){
     console.log("[KERNEL]在直播页面上启动了")
+    console.log("[ALERT]在活动页面的直播间上启动时会出现无法显示面板的情况")
     createPenel()//自动开始建立面板
     function createPenel(){
         console.info("[CP]创建面板中")
