@@ -249,10 +249,30 @@ if (url=="live.bilibili.com"){
     })}//live代码块
 
     function log(text){
-         console.info("[日志] " + text)
-         logtable = document.getElementById("log")
-         logtable.innerHTML = '<p id="log">' + text + '</p> '
+         console.info("[日志] " + text);
+         logtable = document.getElementById("log");
+         logtable.innerHTML = '<p id="log">' + text + '</p> ';
     }
+    
+    setFace()//最后设置一个获取封面的按钮在三个点里
+
+    function setFace(){
+        var fatherTable = document.getElementsByClassName("more-ops-list");
+        var lablehtml = '<li><div class="ops-watch-later van-watchlater" onclick="goViewFace();"><span class="wl-tips" style="display: none;"></span></div>获取封面</li>';
+        $(fatherTable).append(lablehtml);
+    }
+
+    function goViewFace(){
+        $.ajax({ 
+            type:"GET", 
+            url:"https://v1.alapi.cn/api/bbcover?&c="+bvid, 
+            dataType:"json", 
+            success:function(data){ //这里的data就是json信息
+                window.open(data.data.cover); ;//data.data.cover就是封面信息 接着打开封面页面。
+            } 
+            }); 
+    }
+    
 
 } else if(url=="t.bilibili.com") {
     console.log("[KERNEL]在动态页面上启动了")
